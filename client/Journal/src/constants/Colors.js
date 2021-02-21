@@ -1,0 +1,7 @@
+export const MAIN_THEME_COLOR = '#1DA1F2'
+export const WHITE = 'white'
+export const GREEN = 'green'
+export const RED = 'red'
+export const GREY = 'grey'
+export const BLACK = 'black'
+export const TOAST_MESSAGE_COLOR = '#404040'

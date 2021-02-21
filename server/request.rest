@@ -1,0 +1,69 @@
+POST http://localhost:5000/user/register
+Content-Type: application/json
+
+{
+    "name": "Shivam",
+    "email": "shivambmgupta@gmail.com",
+    "username": "shivambmgupta",
+    "password": "Gupta@1",
+    "gender": "Male",
+    "facebook_link": "https://www.facebook.com/shivambmgupta",
+    "linkedin_link": "https://www.linkedin.com/in/shivambmgupta/",
+    "twitter_link": "https://www.twitter.com/shivambmgupta"
+}
+
+###
+POST http://localhost:5000/user/login
+Content-Type: application/json
+
+{
+    "email": "shivambmgupta@gmail.com",
+    "password": "Gupta@1"
+}
+
+###
+GET http://localhost:5000/about-developer
+
+###
+GET http://localhost:5000/user/journals
+Content-Type: application/json
+Authorization: Brearer eyJhbGciOiJIUzI1NiJ9.c2hpdmFtYm1ndXB0YQ.4MAb3WqzkiGRm_wcDwqnGVzfkncfWqFZSdIPWWB-5lI
+
+###
+GET http://localhost:5000/user/details
+Content-Type: application/json
+Authorization: Brearer eyJhbGciOiUzI1NiJ9.c2hpdmFtYm1ndXB0YQ.4MAb3WqzkiGRm_wcDwqnGVzfkncfWqFZSdIPWWB-5lI
+
+
+###
+POST http://localhost:5000/user/journal
+Content-Type: application/json
+Authorization: Brearer eyJhbGciOiJIUzI1NiJ9.c2hpdmFtYm1ndXB0YQ.4MAb3WqzkiGRm_wcDwqnGVzfkncfWqFZSdIPWWB-5lI
+
+{
+    "journal": {
+        "title": "My third journal",
+        "body": "Hi my name is shivam gupta"
+    }
+}
+
+###
+PATCH http://localhost:5000/user/journal/602cc7a90fd4d22458b291e3
+Content-Type: application/json
+Authorization: Brearer eyJhbGciOiJIUzI1NiJ9.c2hpdmFtYm1ndXB0YQ.4MAb3WqzkiGRm_wcDwqnGVzfkncfWqFZSdIPWWB-5lI
+
+{
+    "journal": {
+        "date": "01/12/2020",
+        "body": "I'm the king"
+    }
+}
+
+
+###
+DELETE http://localhost:5000/user/journal/602cc502b214de2242e5b2b6
+Content-Type: application/json
+Authorization: Brearer eyJhbGciOiJIUzI1NiJ9.c2hpdmFtYm1ndXB0YQ.4MAb3WqzkiGRm_wcDwqnGVzfkncfWqFZSdIPWWB-5lI
+
+
+
