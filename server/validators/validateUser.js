@@ -17,34 +17,30 @@ const userValidationSchema = Joi.object().keys({
         body: Joi.string().required().max(300),
         date: Joi.date()    
     }]
-})
+});
 
 const journalValidationSchema = Joi.object().keys({
     title: Joi.string().optional().allow(""),
-    body: Joi.string().required().max(300),
+    body: Joi.string().required(),
     date: Joi.date().default(new Date()).optional()
-})
+});
 
 const userSchemaOptions = {
     abortEarly: false // Include all the errors
-}
+};
 
 const journalSchemaOptions = {
     abortEarly: false
-}
+};
 
 export const validateUser = (user) => {
     try {
         return userValidationSchema.validate(user, userSchemaOptions);
-    } catch (error) {
-        
-    }
-}
+    } catch (error) {}
+};
 
 export const validateJournal = (joural) => {
     try {
         return journalValidationSchema.validate(joural, journalSchemaOptions);
-    } catch (error) {
-        
-    }
-}
+    } catch (error) {}
+};

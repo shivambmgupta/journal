@@ -1,9 +1,9 @@
-const getAge = (birthDate) => {
-    return Math.floor((new Date() - new Date(birthDate).getTime()) / 31557600000)
-}
+const getAge = (birthDate) => (
+    Math.floor((new Date() - new Date(birthDate).getTime()) / 31557600000)
+);
 
-const DEFAULT_TECHNOLOGY_BG = "black"
-const DEFAULT_TECHNOLOGY_FG = "white"
+const DEFAULT_TECHNOLOGY_BG = "black";
+const DEFAULT_TECHNOLOGY_FG = "white";
 
 const developer = {
     name: "Shivam Gupta",
@@ -12,7 +12,7 @@ const developer = {
     mail: "shivambmgupta@gmail.com",
     about: {
         title: "About the Developer",
-        body: "Curious Computer Science & Technologies Student, currently, in 7th semester working in React-Native. Full Stack Developer. Web, Mobile Application, Software Developer. Studying about Design Patterns, and Functional Programming. Have advance proficiency in Java, intermediate in Python, C++, C, NodeJS, React, React-Native, SpringBoot, Hibernate."
+        body: "I'm a curious developer who is an enthusiast of Technologies, Programming, the Universe and Physics. I read widely. Love studying Design Patterns. Develops in Javascript (sometimes in Java) but would love to write code in C/C++. I'm always inspired by Ryan Dahl, Guillermo Rauch, Ben Noordhuis. Professionally, I'm a Software Engineer at Signzy."
     },
     aboutProject: {
         title: "About this Application",
@@ -20,12 +20,22 @@ const developer = {
     },
     technologies: [
         {
-            title: "Java",
+            title: "Javascript",
+            background: DEFAULT_TECHNOLOGY_BG,
+            foreground: DEFAULT_TECHNOLOGY_FG
+        },
+        {
+            title: "NodeJS",
             background: DEFAULT_TECHNOLOGY_BG,
             foreground: DEFAULT_TECHNOLOGY_FG
         },
         {
             title: "C++",
+            background: DEFAULT_TECHNOLOGY_BG,
+            foreground: DEFAULT_TECHNOLOGY_FG
+        },
+        {
+            title: "Java",
             background: DEFAULT_TECHNOLOGY_BG,
             foreground: DEFAULT_TECHNOLOGY_FG
         },
@@ -53,12 +63,7 @@ const developer = {
             title: "MERN",
             background: DEFAULT_TECHNOLOGY_BG,
             foreground: DEFAULT_TECHNOLOGY_FG
-        },
-        {
-            title: "Angular9",
-            background: DEFAULT_TECHNOLOGY_BG,
-            foreground: DEFAULT_TECHNOLOGY_FG
-        },
+        }
     ],
     contact: "+91 8770496870",
     social_media: [
@@ -85,8 +90,14 @@ const developer = {
             link: "https://www.github.com/shivambmgupta",
             color: "black",
             icon:  "github"
+        },
+        {
+            title: "Website",
+            link: "https://shivambmgupta.netlify.app/",
+            color: "black",
+            icon:  "web"
         }
     ],    
-}
+};
 
 export default developer;
