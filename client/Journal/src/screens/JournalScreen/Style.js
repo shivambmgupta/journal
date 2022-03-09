@@ -8,7 +8,7 @@ export default StyleSheet.create({
         height: "auto"
     },
     ScrollViewContentContainer: {
-        paddingBottom: 60,
+        paddingBottom: 150,
         minHeight: height * 0.75,
         alignItems: 'center',
         elevation: 0 

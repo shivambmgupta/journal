@@ -1,6 +1,6 @@
 export  const APP_TITLE = "Journals"
 
-export const JOURNAL_SCREEN_TITLE = 'Hi, What\'s on your mind?';
+export const JOURNAL_SCREEN_TITLE = 'hi, what\'s on your mind?';
 
 // ScreenNames
 export const APP = "App"
@@ -76,4 +76,5 @@ export const DELETE_ALERT = "Are you sure? Once you delete this journal, you can
 export const DELETE_TITLE = "Delete this Journal"
 export const CANCEL = "Cancel"
 export const PROCEED = "Do it anyway"
-
+export const OKAY_NVM = "Okay, nevermind!"
+export const OOPS = "Oops!"

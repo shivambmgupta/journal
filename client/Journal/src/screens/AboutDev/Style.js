@@ -13,8 +13,8 @@ export default StyleSheet.create({
     SocailMediaContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
-        width: 160,
-        marginVertical: 15,
+        width: "60%",
+        marginVertical: 25,
         justifyContent: "space-evenly"
     },
     SocialMediaIcon: {

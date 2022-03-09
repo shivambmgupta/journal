@@ -5,10 +5,17 @@ import * as Colors from '../../constants/Colors';
 export default StyleSheet.create({
     ScrollViewParentContainer: {
         flex: 1, 
-        height: "auto"
+        height: "auto",
     },
     ScrollViewContentContainer: {
         paddingBottom: 60
+    },
+    CardTitle: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    CardContainer: {
+        maxHeight: "20%"
     },
     RoundFixedButton: { 
         position:'absolute',

@@ -19,6 +19,7 @@ import { useSelector } from 'react-redux'
 import * as Consts from '../../constants/Constants';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import * as Colors from '../../constants/Colors';
+import { formatDate } from '../../util/common';
 const { height, width } = Dimensions.get('window')
 
 // For new journal editable is true as default
@@ -31,16 +32,36 @@ export default (props) => {
     const isExistingMode = mode === Consts.EXISTING
     const [title, setTitle] = useState(isExistingMode ? props.route?.params?.journal?.title : null);
     const [body, setBody] = useState(isExistingMode ? props.route?.params?.journal?.body : null);
+    const [date, setDate] = useState(isExistingMode ? props.route?.params?.journal?.date : null);
     const [editable, setEditability] = useState(isExistingMode ? false : true)
     const [activity, setActivity] = useState(false);
 
+    const fallBackOnFailure = React.useCallback(() => {
+        Alert.alert(
+            Consts.OOPS,
+            "Something went wrong while doing this action, we are extremly sorry!",
+            [
+                {
+                    "text": Consts.OKAY_NVM,
+                    onPress: () => console.log("cancel Pressed"),
+                    style: 'cancel'
+                }
+            ],
+            { cancelable: true }
+        );
+    }, []);
+
     const deleteConfirmed = () => {
-        const journal = props.route?.params?.journal
-        setActivity(true)
+        const journal = props.route?.params?.journal;
+        setActivity(true);
         Services.deleteJournal(journal._id, token, (response) => {
             setActivity(false)
             if (response.status === 202)
                 props.navigation.goBack();
+            else {
+                console.log(response);
+                fallBackOnFailure();
+            }
         });
     }
 
@@ -79,6 +100,7 @@ export default (props) => {
                 (response) => {
                     setActivity(false)
                     if (response.status == 200) props.navigation.goBack();
+                    else fallBackOnFailure();
                 }
             )
         } else {
@@ -95,12 +117,19 @@ export default (props) => {
                     if (response.status == 201) props.navigation.goBack()
                     else {
                         // handle save failure
+                        fallBackOnFailure();
                     }
                 }
             )
 
         }
-    }
+    };
+
+    const getTitle = () => {
+        if (date && isExistingMode && !editable)
+            return formatDate(new Date(date)).toString();
+        return formatDate(new Date())
+    };
 
     const handleCancelPress = () => {
         if (isExistingMode) {
@@ -146,8 +175,10 @@ export default (props) => {
                                 </TouchableOpacity>
                             }
                             <View style={Styles.TitleContainer}>
-                                <Text style={Styles.TitleText}>
-                                    { Consts.JOURNAL_SCREEN_TITLE }    
+                                <Text style={[Styles.TitleText, {
+                                    color: editable ? Colors.BLACK : Colors.GREY
+                                }]}>
+                                    {getTitle()}
                                 </Text>
                             </View>
                             {
@@ -180,7 +211,8 @@ export default (props) => {
                             value={body}
                             editable={editable}
                             style={{
-                                color: editable ? Colors.BLACK : Colors.GREY
+                                color: editable ? Colors.BLACK : Colors.GREY,
+                                /* height: 350 */
                             }}
                             numberOfLines={20}
                             textAlignVertical="top"

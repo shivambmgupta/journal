@@ -47,7 +47,7 @@ const BottomNavigator = () => {
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
-                    if (route.name === Consts.HOME_STACK) {
+                    if (route.name === Consts.HOME_SCREEN) {
                         iconName = 'home-variant';
                     } else if (route.name === Consts.PROFILE_SCREEN) {
                         iconName = 'account-circle';
@@ -60,10 +60,11 @@ const BottomNavigator = () => {
             tabBarOptions={{
                 activeTintColor: MAIN_THEME_COLOR,
                 inactiveTintColor: GREY,
+                keyboardHidesTabBar: true
             }}
 
         >
-            <Tab.Screen name={Consts.HOME_STACK} component={HomeStackNavigator} />
+            <Tab.Screen name={Consts.HOME_SCREEN} component={HomeStackNavigator} />
             <Tab.Screen name={Consts.PROFILE_SCREEN} component={ProfileScreen} />
             <Tab.Screen name={Consts.APP_DEVELOPER} component={AboutDev} />
         </Tab.Navigator>
